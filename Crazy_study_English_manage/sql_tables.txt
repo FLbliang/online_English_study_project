@@ -1,0 +1,177 @@
+管理员信息表	manager_info		管理信息管理	manage_info_manage	
+管理员ID	manager_id		int		否
+账号		username		varchar(30)	否
+密码		password		varchar(30)	否
+管理员名字	nickname		varchar(30)	否
+权限级别	power			int		否
+在线状态	status			int		否
+最后上线时间	last_login		datetime	否
+创建时间	create_time		datetime	否
+$next		
+用户基本信息表	user_info		用户信息存储管理	user_info_manage
+用户ID		user_id			int		否
+账号		username		varchar(30)	否
+邮箱		email			varchar(30)	否
+密码		password		varchar(30)	否
+昵称		nickname		varchar(30)	能
+性别		sex			varchar(10)	默认男
+年龄		age			int		默认0
+学历		education		varchar(30)	能
+毕业学校	graduated_school	varchar(60)	能
+在线状态	status			int		默认0
+积分排名	ranking			int		默认0
+创建时间	create_time		datetime	否
+$next			
+密保问题存储表	security_info	用户信息存储管理	user_info_manage		
+用户ID	user_id	int	否
+问题	question	varchar(210)	否
+答案	answer	varchar(210)	否
+创建时间	create_time	datetime	否
+$next		
+用户留言信息表	user_message_info	用户信息存储管理	user_info_manage	
+发送的用户ID	send_user_id	int	否
+接收的用户ID	recv_user_id	int	否
+留言时间	send_time	datetime	否
+留言信息	send_message	varchar(300)	否
+$next		
+好友信息表	friend_info		用户信息存储管理	user_info_manage
+用户1ID	user1_id	int	否
+用户2ID	user2_id	int	否
+创建时间	create_time	datetime	否
+$next			
+好友申请表	apply_info		用户信息存储管理	user_info_manage
+申请ID	apply_id	int	否
+发送申请的用户ID	send_user_id	int	否
+接收申请的用户ID	recv_user_id	int	否
+处理状态	status	int	默认0
+创建时间	create_time	datetime	否
+$next		
+社区帖子表	article_info		社区信息管理	communication_info_manage
+帖子ID	article_id	int	否
+发帖的用户的ID	host_user_id	int	否
+标题	title	varchar(100)	否
+主体内容	message	varchar(500)	否
+回帖数	reply_num	int	默认0
+浏览次数	visited_num	int	默认0
+发帖时间	send_time	datetime	否
+$next		
+回帖存储表	reply_info		社区信息管理	communication_info_manage
+帖子ID	article_id	int	否
+回帖ID	reply_id	int	否
+回帖的用户ID	reply_user_id	int	否
+回帖内容	message	varchar(500)	否
+回帖时间	reply_time	datetime	否
+$next		
+回帖留言表	reply_message_info	社区信息管理	communication_info_manage	
+回帖ID	reply_id	int	否
+留言用户的ID	send_user_id	int	否
+留言时间	send_time	datetime	否
+留言信息	message	varchar(200)	否
+$next		
+学习层次存储	level_info		英语数据存储管理	English_data_manage
+层次ID	level_id	int	否
+层次名	level_name	varchar(100)	否
+学习人数	sum_studies	int	默认0
+累积积分	sum_rank_score	double	默认0
+题目总数	sum_problems	int	默认0
+统计做题正确率	cal_correct_rate	double	默认0
+统计做题完整性	cal_integrity	double	默认0
+累积使用提示次数	sum_tips	int	默认0
+创建时间	create_time	datetime	否
+$next		
+题目类型存储	type_info		英语数据存储管理	English_data_manage
+层次ID	level_id	int	否
+类型ID	type_id	int	否
+类型名	type_name	varchar(100)	否
+学习人数	sum_studies	int	默认0
+累积积分	sum_rank_score	double	默认0
+题目总数	sum_problems	int	默认0
+统计做题正确率	cal_correct_rate	double	默认0
+统计做题完整性	cal_integrity	double	默认0
+累积使用提示次数	sum_tips	int	默认0
+创建时间	create_time	datetime	否
+$next		
+具体题目存储	problem_info		英语数据存储管理	English_data_manage
+类型ID	type_id	int	否
+题目ID	problem_id	int	否
+分数	score	double	否
+题目描述	problem_desc	varchar(800)	否
+参考答案	answer	varchar(800)	否
+是否为选择题	is_select	int	默认0
+累积积分	sum_rank_score	double	默认0
+学习人数	sum_studies	int	默认0
+统计做题正确率	cal_correct_rate	double	默认0
+统计做题完整性	cal_integrity	double	默认0
+累积使用提示次数	sum_tips	int	默认0
+创建时间	create_time	datetime	否
+$next		
+选择题选项存储	select_info		英语数据存储管理	English_data_manage
+选项ID	select_id	int	否
+题目ID	problem_id	int	否
+选项描述	select_desc	varchar(100)	否
+创建时间	create_time	datetime	否
+$next		
+出题套卷存储	test_info		用户学习数据管理	user_study_data_manage
+套卷ID	test_id	int	否
+用户ID	user_id	int	否
+层次ID	level_id	int	否
+是否提交	is_submit	int	默认0
+得分	sum_score	double	默认0
+累积积分	sum_rank_score	double	默认0
+统计做题正确率	cal_correct_rate	double	默认0
+统计做题完整性	cal_integrity	double	默认0
+累积使用提示次数	sum_tips	int	默认0
+创建时间	create_time	datetime	否
+$next		
+出题题目表	test_problem_info	用户学习数据管理	user_study_data_manage	
+套卷ID	test_id	int	否
+题目ID	problem_id	int	否
+得分	get_score	double	默认0
+获得积分	get_rank_score	double	默认0
+得分率	get_score_rate	double	默认0
+用户的答案	user_answer	varchar(800)	默认0
+用过的提示次数	sum_tips	int	默认0
+创建时间	create_time	datetime	否
+$next		
+选择层次表	user_level_info		用户学习数据管理	user_study_data_manage
+用户ID	user_id	int	否
+层次ID	level_id	int	否
+是否学习过	is_study	int	默认0
+层次排名	level_rank	int	默认0
+累积积分	sum_rank_score	double	默认0
+做题次数	sum_do_num	int	默认0
+统计做题正确率	cal_correct_rate	double	默认0
+统计做题完整性	cal_integrity	double	默认0
+累积使用提示次数	sum_tips	int	默认0
+创建时间	create_time	datetime	否
+$next		
+选择类型表	user_type_info		用户学习数据管理	user_study_data_manage
+用户ID	user_id	int	否
+类型ID	type_id	int	否
+是否学习过	is_study	int	默认0
+类型排名 	type_rank	int	默认0
+累积积分	sum_rank_score	double	默认0
+做题次数	sum_do_num	int	默认0
+统计做题正确率	cal_correct_rate	double	默认0
+统计做题完整性	cal_integrity	double	默认0
+累积使用提示次数	sum_tips	int	默认0
+创建时间	create_time	datetime	否
+$next	
+题目用户联系表	user_problem_info	用户学习数据管理	user_study_data_manage	
+用户ID	user_id	int	否
+题目ID	problem_id	int	否
+是否学习过	is_study	int	默认0
+累积积分	sum_rank_score	double	默认0
+做题次数	sum_do_num	int	默认0
+统计做题正确率	cal_correct_rate	double	默认0
+统计做题完整性	cal_integrity	double	默认0
+累积使用提示次数	sum_tips	int	默认0
+创建时间	create_time	datetime	否
+$next	
+管理操作日记	manage_log		管理信息管理	manage_info_manage	
+操作时间	action_time	datetime	否
+管理员ID	manager_id	int	否
+操作IP	manager_ip	varchar(20)	否
+操作内容	action_content	varchar(100)	否
+$next
+$end
